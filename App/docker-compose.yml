@@ -2,5 +2,5 @@ version: '3.9'
 
 services:
   script-log:
-    image: luisavelino/script-log:1.0
+    image: luisavelino/script-log:1.1
     container_name: script-log

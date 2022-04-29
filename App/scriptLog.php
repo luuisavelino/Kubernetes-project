@@ -1,7 +1,7 @@
 <?php
 
-# Reading every 20 seconds the user directory
+# Reading the TWORPTEST environment variable every 20 seconds
 while (1) {
-    error_log('The user directory logged in is ' . $_ENV["HOME"]);
+    error_log('The value of TWORPTEST is ' . getenv('TWORPTEST'));
     sleep(20);   
 }
