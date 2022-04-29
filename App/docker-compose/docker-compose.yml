@@ -1,0 +1,8 @@
+version: '3.9'
+
+services:
+  script-log:
+    image: luisavelino/script-log:1.2
+    container_name: script-log
+    environment:
+      TWORPTEST: "true1000000%"

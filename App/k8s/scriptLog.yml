@@ -1,0 +1,38 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: scriptlog
+spec:
+  selector:
+    matchLabels:
+      app: scriptlog
+  template:
+    metadata:
+      labels:
+        app: scriptlog
+    spec:
+      containers:
+        - name: scriptlog
+          image: luisavelino/script-log:1.2
+          env: 
+            - name: TWORPTEST
+              valueFrom:
+                secretKeyRef:
+                  name: mysecret
+                  key: TWORPTEST
+          resources:
+            limits:
+              memory: "128Mi"
+              cpu: "500m"
+
+---
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: scriptlog-service
+spec:
+  selector:
+    app: scriptlog
+  ports:
+    - port: 35000
